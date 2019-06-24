@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Image;
-use App\Profile;
 use App\User;
 
 use Illuminate\Support\Facades\Auth;
@@ -24,23 +23,23 @@ class ImageController extends Controller
         if(Auth::check()){
             $userId = Auth::user()->id;
         }
-        $dataProfile = Profile::where('userid', '=', $userId)->take(1)->get();
+        $dataProfile = User::where('id', '=', $userId)->take(1)->get();
         if (count($dataProfile) > 0) {
             foreach($dataProfile as $Profile){
                 $image_path = public_path('profileimg/'.$Profile->profileimage); 
                 if($Profile->profileimage != 'profile.jpg'){
                     @unlink($image_path);
                 }
-                $profileUpdate = Profile::where('userid', '=', $userId)
+                $profileUpdate = User::where('id', '=', $userId)
                     ->update(['profileimage' => $image_name]);
             }          
         }
-        else {
-            $profileUpdate = new Profile();
-            $profileUpdate->userid = $userId;
-            $profileUpdate->profileimage = $image_name;
-            $profileUpdate->save();
-        }
+        // else {
+        //     $profileUpdate = new User();
+        //     $profileUpdate->id = $userId;
+        //     $profileUpdate->profileimage = $image_name;
+        //     $profileUpdate->save();
+        // }
         return response()->json(['status'=>true]);
 
     }

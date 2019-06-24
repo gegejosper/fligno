@@ -70,15 +70,16 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'username' => $data['username'],
             'usertype' => 'member',
+            'profileimage' => 'profile.jpg',
             'password' => Hash::make($data['password']),
         ]);
 
-        $profileData = new Profile();
-        $profileData->userid = $data->id;
-        $profileData->address = '';
-        $profileData->contactnum = '';
-        $profileData->profileimage ='profile.jpg';
-        $profileData->save();
+        // $profileData = new Profile();
+        // $profileData->userid = $data->id;
+        // $profileData->address = '';
+        // $profileData->contactnum = '';
+        // $profileData->profileimage ='profile.jpg';
+        // $profileData->save();
     
         return $data;
     }

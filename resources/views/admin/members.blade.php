@@ -26,22 +26,12 @@
                 <tbody class="membersresult">
                     @foreach($userData as $User)
                     <tr>
-                    @forelse($User->profile as $Profile)
-                    <td>
-                        <img src="{{asset ('profileimg')}}/{{$Profile->profileimage}}" alt="" class="profile-img"></td>
-                    <td><a href="/member/{{$User->id}}">{{$User->name}}</a></td>
-                    <td>{{$User->email}}</td>
-                    
-                        <td>{{$Profile->address}}</td>
-                        <td>{{$Profile->contactnum}}</td>
-                    @empty
-                    <td><img src="{{asset ('profileimg')}}/profile.jpg" alt="" class="profile-img"></td>
-                    <td><a href="/member/{{$User->id}}">{{$User->name}}</a></td>
-                    <td>{{$User->email}}</td>
-                    <td></td>
-                    <td></td>
-                    @endforelse
-                       
+                        <td>
+                            <img src="{{asset ('profileimg')}}/{{$User->profileimage}}" alt="" class="profile-img"></td>
+                        <td><a href="/admin/member/{{$User->id}}">{{$User->name}}</a></td>
+                        <td>{{$User->email}}</td>
+                        <td>{{$User->address}}</td>
+                        <td>{{$User->contactnum}}</td>
                     </tr>
                     @endforeach
                 </tbody>

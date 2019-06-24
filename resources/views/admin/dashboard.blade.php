@@ -26,53 +26,28 @@
                 <tbody class="membersresult">
                     @foreach($userData as $User)
                     <tr class="item{{$User->id}}">
-                    @forelse($User->profile as $Profile)
                     <td>
-                        <img src="{{asset ('profileimg')}}/{{$Profile->profileimage}}" alt="" class="profile-img"></td>
+                        <img src="{{asset ('profileimg')}}/{{$User->profileimage}}" alt="" class="profile-img"></td>
                     <td>
                         {{$User->name}}</td>
                     <td>{{$User->email}}</td>
-                    
-                        <td>{{$Profile->address}}</td>
-                        <td>{{$Profile->contactnum}}</td>
-                        <td style="padding-top:15px;">
-                            <a href="javascript:;" 
-                                class="edit-modal btn btn-info btn-small" 
-                                data-id="{{$User->id}}" 
-                                data-name="{{$User->name}}"
-                                data-email="{{$User->email}}"  
-                                data-contactnum="{{$Profile->contactnum}}" 
-                                data-address="{{$Profile->address}}"
-                                data-pic="{{$Profile->profileimage}}">
-                            <i class="fa fa-pencil"></i></a> 
-                            <a href="javascript:;" 
-                                class="delete-modal btn btn-danger btn-small" 
-                                data-id="{{$User->id}}">
-                            <i class="fa fa-remove"></i></a>
-                        </td>
-                    @empty
-                    <td><img src="{{asset ('profileimg')}}/profile.jpg" alt="" class="profile-img"></td>
-                    <td>{{$User->name}}</td>
-                    <td>{{$User->email}}</td>
-                    <td></td>
-                    <td></td>
+                    <td>{{$User->address}}</td>
+                    <td>{{$User->contactnum}}</td>
                     <td style="padding-top:15px;">
-                            <a href="javascript:;" 
-                                class="edit-modal btn btn-info btn-small" 
-                                data-id="{{$User->id}}"
-                                data-email="{{$User->email}}" 
-                                data-name="{{$User->name}}"  
-                                data-contactnum="" 
-                                data-address=""
-                                data-pic="profile.jpg">
-                            <i class="fa fa-pencil"></i></a> 
-                            <a href="javascript:;" 
-                                class="delete-modal btn btn-danger btn-small" 
-                                data-id="{{$User->id}}">
-                            <i class="fa fa-remove"></i></a>
-                        </td>
-                    @endforelse
-                    
+                        <a href="javascript:;" 
+                            class="edit-modal btn btn-info btn-small" 
+                            data-id="{{$User->id}}" 
+                            data-name="{{$User->name}}"
+                            data-email="{{$User->email}}"  
+                            data-contactnum="{{$User->contactnum}}" 
+                            data-address="{{$User->address}}"
+                            data-pic="{{$User->profileimage}}">
+                        <i class="fa fa-pencil"></i></a> 
+                        <a href="javascript:;" 
+                            class="delete-modal btn btn-danger btn-small" 
+                            data-id="{{$User->id}}">
+                        <i class="fa fa-remove"></i></a>
+                    </td>
                     </tr>
                     @endforeach
                 </tbody>

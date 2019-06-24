@@ -59,15 +59,15 @@
                 </div>
                 </div>
                 @foreach($userData as $Profile) 
-                @if(!empty($Profile->address))
-                    <iframe
-                    width="100%"
-                    height="450"
-                    frameborder="0" style="border:0"
-                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAcCK_v2zv-qrckUCAHSkhn-H772kOvCTc
-                        &q={{$Profile->address}}" allowfullscreen>
-                    </iframe>
-                @endif
+                  @if(!empty($Profile->address))
+                      <iframe
+                      width="100%"
+                      height="450"
+                      frameborder="0" style="border:0"
+                      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAcCK_v2zv-qrckUCAHSkhn-H772kOvCTc
+                          &q={{$Profile->address}}" allowfullscreen>
+                      </iframe>
+                  @endif
                 @endforeach
             
         </div><!-- End profile widget -->
